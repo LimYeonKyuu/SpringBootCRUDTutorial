@@ -10,4 +10,9 @@ public class StudentController {
     public String students() {
         return "students";
     }
+
+    @GetMapping("/students/new")
+    public String createStudentForm() {
+        return "add_student";
+    }
 }
