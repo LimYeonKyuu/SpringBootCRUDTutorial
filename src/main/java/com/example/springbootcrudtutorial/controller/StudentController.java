@@ -49,4 +49,10 @@ public class StudentController {
     studentService.editStudent(id, StudentDto.from(request));
     return "redirect:/students";
   }
+
+  @GetMapping("/students/delete/{id}")
+  public String deleteStudent(@PathVariable Long id) {
+    studentService.deleteStudent(id);
+    return "redirect:/students";
+  }
 }
