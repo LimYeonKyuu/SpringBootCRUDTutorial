@@ -11,8 +11,13 @@ public class StudentController {
         return "students";
     }
 
-    @GetMapping("/students/new")
+    @GetMapping("/students/add")
     public String createStudentForm() {
         return "add_student";
+    }
+
+    @GetMapping("/students/edit/{id}")
+    public String editStudentForm() {
+        return "edit_student";
     }
 }
