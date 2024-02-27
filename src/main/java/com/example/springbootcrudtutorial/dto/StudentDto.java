@@ -1,6 +1,7 @@
 package com.example.springbootcrudtutorial.dto;
 
 import com.example.springbootcrudtutorial.controller.request.AddStudentRequest;
+import com.example.springbootcrudtutorial.controller.request.EditStudentRequest;
 import com.example.springbootcrudtutorial.entity.Student;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,6 +28,15 @@ public class StudentDto {
                 .firstName(student.getFirstName())
                 .lastName(student.getLastName())
                 .email(student.getEmail())
+                .build();
+    }
+
+    public static StudentDto from(EditStudentRequest request) {
+        return StudentDto.builder()
+                .id(request.getId())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .email(request.getEmail())
                 .build();
     }
 }

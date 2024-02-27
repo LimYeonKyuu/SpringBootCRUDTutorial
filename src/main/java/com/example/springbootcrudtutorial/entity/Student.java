@@ -33,4 +33,10 @@ public class Student {
                 .email(dto.getEmail())
                 .build();
     }
+
+    public void update(StudentDto dto) {
+        this.firstName = dto.getFirstName();
+        this.lastName = dto.getLastName();
+        this.email = dto.getEmail();
+    }
 }

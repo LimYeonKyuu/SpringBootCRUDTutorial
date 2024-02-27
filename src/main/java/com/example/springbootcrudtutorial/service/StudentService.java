@@ -22,4 +22,13 @@ public class StudentService {
     public void addStudent(StudentDto dto){
         studentRepository.save(Student.from(dto));
     }
+
+    public StudentDto getStudent(Long id) {
+        return studentRepository.findById(id).map(StudentDto::from).orElseThrow();
+    }
+
+    public void editStudent(Long id, StudentDto dto) {
+        Student student = studentRepository.findById(id).orElseThrow();
+        student.update(dto);
+    }
 }
