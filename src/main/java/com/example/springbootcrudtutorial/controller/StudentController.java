@@ -1,6 +1,7 @@
 package com.example.springbootcrudtutorial.controller;
 
 import com.example.springbootcrudtutorial.controller.request.AddStudentRequest;
+import com.example.springbootcrudtutorial.controller.response.StudentResponse;
 import com.example.springbootcrudtutorial.dto.StudentDto;
 import com.example.springbootcrudtutorial.service.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,8 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping("/students")
-    public String students() {
+    public String students(Model model) {
+        model.addAttribute("students", StudentResponse.listFrom(studentService.getStudents()));
         return "students";
     }
 
